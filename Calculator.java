@@ -2,8 +2,8 @@
  * A class representing a simple calculator. The calculator takes in an input string and interprets it as a command.
  * The calculator evaluates the command and returns a result.
  *
- * @author Stephen Thung
- * @version 2019-02-13
+ * @author Zandi Milligan
+ * @version 2019-02-14
  */
 
 public class Calculator
@@ -36,6 +36,15 @@ public class Calculator
     {
         int a = Integer.parseInt(tokens[1]); // Throws NumberFormatException if the second token is not an int value.
         // TODO: complete this...
+        if(tokens[0].equalsIgnoreCase("negate"))
+        {
+        	return -a;
+        }
+        if(tokens[0].equalsIgnoreCase("halve"))
+        {
+        	return a / 2;
+        }
+        throw new CalculatorException("Illegal Command");
     }
 
     /**
@@ -144,5 +153,6 @@ public class Calculator
         // TODO: complete this...
         // Hint: you should try and call execute(). If execute encounters an error, it will throw an exception. This
         // method will catch those exceptions and respond accordingly.
+    	String[] info = input.split(" ");
     }
 }
