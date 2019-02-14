@@ -78,14 +78,13 @@ public class Calculator
     protected static int calculateThreeTokens(String[] tokens)
             throws ArithmeticException, NumberFormatException, CalculatorException
     {
-        // TODO: complete this...
     	int a = Integer.parseInt(tokens[0]); // Throws NumberFormatException if the first token is not an int value.
     	int b = Integer.parseInt(tokens[2]); // Throws NumberFormatException if the third token is not an int value.
-    	if(tokens[2].equals("+"))
+    	if(tokens[1].equals("+"))
     		return a + b;
-    	if(tokens[2].equals("-"))
+    	if(tokens[1].equals("-"))
     		return a - b;
-    	if(tokens[2].equals("/"))
+    	if(tokens[1].equals("/"))
     		return a / b;
     	throw new CalculatorException("Illegal Command");
     }
@@ -124,8 +123,9 @@ public class Calculator
         switch(tokens.length)
         {
             // TODO: complete this...
+        	
         }
-
+        return 0;
     }
 
     /**
@@ -163,5 +163,6 @@ public class Calculator
         // Hint: you should try and call execute(). If execute encounters an error, it will throw an exception. This
         // method will catch those exceptions and respond accordingly.
     	String[] info = input.split(" ");
+    	return null;
     }
 }
