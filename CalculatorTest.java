@@ -280,6 +280,7 @@ public class CalculatorTest {
         }
 
         // Token length is > 3:
+    	
     	try
         {
             int result = Calculator.execute(new String[] {"too", "many", "Strings", "in", "here"});
@@ -295,6 +296,7 @@ public class CalculatorTest {
         {
             Assert.fail("Unexpected Exception (not CalculatorException) caught");
         }
+        
     }
 
     /**
@@ -320,7 +322,8 @@ public class CalculatorTest {
      */
     public void parseAndExecuteTestDivideByZero() throws AssertException
     {
-        // TODO: complete this test...
+    	String result = Calculator.parseAndExecute("5 / 0");
+        Assert.assertEquals("Attempted to divide by 0. Please try again.", result);
     }
 
     /**
@@ -328,7 +331,8 @@ public class CalculatorTest {
      */
     public void parseAndExecuteTestInvalidNumber() throws AssertException
     {
-        // TODO: complete this test...
+    	String result = Calculator.parseAndExecute("5 + foo");
+        Assert.assertEquals("Input number cannot be parsed to an int. Please try again.", result);
     }
 
     /**
@@ -345,6 +349,7 @@ public class CalculatorTest {
      */
     public void parseAndExecuteTestInvalidTokenLength() throws AssertException
     {
-        // TODO: complete this test...
+    	String result = Calculator.parseAndExecute("Too many strings here");
+        Assert.assertEquals("Calculator Exception, message is: Illegal Token Length", result);
     }
 }
