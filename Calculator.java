@@ -35,7 +35,7 @@ public class Calculator
     protected static int calculateTwoTokens(String[] tokens) throws NumberFormatException, CalculatorException
     {
         int a = Integer.parseInt(tokens[1]); // Throws NumberFormatException if the second token is not an int value.
-        // TODO: complete this...
+        
         if(tokens[0].equalsIgnoreCase("negate"))
         {
         	return -a;
@@ -122,17 +122,18 @@ public class Calculator
         // Condition on the number of tokens (number of strings in user input separated by spaces)
         switch(tokens.length)
         {
-        	case 0:
-        		throw new CalculatorException("Illegal Token Length");
-        	case 1:
-        		if(tokens[0].equalsIgnoreCase("quit"))
-        			return Integer.MIN_VALUE;
-        	case 2:
-        		return calculateTwoTokens(tokens);
-        	case 3:
-        		return calculateThreeTokens(tokens);
-        	default:
-        		throw new CalculatorException("Illegal Token Length");      		
+        	//case 0:
+        	//	throw new CalculatorException("Illegal Token Length");
+        case 1:
+        	if(tokens[0].equalsIgnoreCase("quit"))
+        		return Integer.MIN_VALUE;
+        	throw new CalculatorException("Illegal Command");
+        case 2:
+        	return calculateTwoTokens(tokens);
+        case 3:
+        	return calculateThreeTokens(tokens);
+        default:
+        	throw new CalculatorException("Illegal Token Length");      		
         }
     }
 
@@ -186,7 +187,7 @@ public class Calculator
     	{
     		return "Input number cannot be parsed to an int. Please try again.";
     	}
-    	catch (CalculatorException e)
+    	catch (Exception e)
     	{
     		return String.format("Calculator Exception, message is: %s", e.getMessage());
     	}
