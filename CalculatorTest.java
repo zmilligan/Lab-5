@@ -192,7 +192,15 @@ public class CalculatorTest {
      */
     public void executeTestValidQuit() throws AssertException
     {
-        // TODO: complete this test...
+    	try
+        {
+            int result = Calculator.execute(new String[] {"quit"});
+            Assert.assertEquals(Integer.MIN_VALUE, result);
+        }
+        catch (Exception e)
+        {
+            Assert.fail("Legal expression threw an Exception: " + e.getMessage());
+        }
     }
 
     /**
@@ -216,7 +224,15 @@ public class CalculatorTest {
      */
     public void executeTestValidThreeTokens() throws AssertException
     {
-        // TODO: complete this test...
+    	try
+        {
+            int result = Calculator.execute(new String[] {"5", "+", "2"});
+            Assert.assertEquals(7, result);
+        }
+        catch (Exception e)
+        {
+            Assert.fail("Legal expression threw an Exception: " + e.getMessage());
+        }
     }
 
     /**
@@ -247,10 +263,38 @@ public class CalculatorTest {
     public void executeTestInvalidTokenLength() throws AssertException
     {
         // Token length is 0:
-        // TODO: complete this test...
+    	try
+        {
+            int result = Calculator.execute(new String[] {});
+            Assert.fail("Illegal expression did not throw an Exception");
+        }
+        catch (CalculatorException e)
+        {
+        	// We expect the function to throw a CalculatorException.
+            // Check to make sure the CalculatorException has the correct message and type:
+            Assert.assertEquals("Illegal Token Length", e.getMessage());
+        }
+    	catch (Exception e)
+        {
+            Assert.fail("Unexpected Exception (not CalculatorException) caught");
+        }
 
         // Token length is > 3:
-        // TODO: complete this test...
+    	try
+        {
+            int result = Calculator.execute(new String[] {"too", "many", "Strings", "in", "here"});
+            Assert.fail("Illegal expression did not throw an Exception");
+        }
+    	catch (CalculatorException e)
+        {
+        	// We expect the function to throw a CalculatorException.
+            // Check to make sure the CalculatorException has the correct message and type:
+            Assert.assertEquals("Illegal Token Length", e.getMessage());
+        }
+    	catch (Exception e)
+        {
+            Assert.fail("Unexpected Exception (not CalculatorException) caught");
+        }
     }
 
     /**
