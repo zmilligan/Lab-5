@@ -1,8 +1,8 @@
 /**
  * Test class for calculator class
  *
- * @author Stephen Thung
- * @version 2019-02-13
+ * @author Zandi Milligan
+ * @version 2019-02-14
  */
 public class CalculatorTest {
 
